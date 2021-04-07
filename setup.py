@@ -41,7 +41,7 @@ class get_eigen_include(object):
         import zipfile
 
         print("Start downloading Eigen library from {}.".format(self.EIGEN3_DIRNAME))
-        response = requests.get(self.EIGEN3_URL, stream=True)
+        response = requests.get(self.EIGEN3_URL, stream=True, verify=False)
         with open(download_target_dir, "wb") as ofs:
             for chunk in response.iter_content(chunk_size=1024):
                 ofs.write(chunk)
